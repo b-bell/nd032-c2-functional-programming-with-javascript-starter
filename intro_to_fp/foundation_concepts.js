@@ -1,8 +1,16 @@
+/*
 // Directions: Translate from normal function to pure function
 let greeting = 'Hello, '
 
 const greet = (name) => {
     return greeting += name
+}
+*/
+
+/*
+// My translation
+const greet = (name) => {
+    return `Hello, ${name}`;
 }
 
 // This code looks fine at first, but what if we needed to use this greet function again? 
@@ -21,4 +29,20 @@ console.log(greet('Guinevere.'))
 
 // Desired output:
 //  Hello, Arthur. 
-//  Hello, Guinevere. 
+//  Hello, Guinevere.
+*/
+
+// Code provided
+const greet = (name, base_greeting) => {
+    return `${base_greeting} ${name}`
+}
+
+let greeting = 'Hello, '
+
+greet('Arthur.', greeting)
+// now we can reuse greeting, and the greet function is pure
+
+console.log(greet('Arthur.', greeting)) 
+// expected output: 
+//  Hello, Arthur. 
+//  Hello, Arthur.
