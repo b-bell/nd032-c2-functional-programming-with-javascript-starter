@@ -4,9 +4,20 @@
 //       its afternoon and "good morning" any other time of the day.
 // Hint - this will help with time of day: new Date().getHours()
 // -----------------------------------------------------------------
+function greet() {
+    const time = new Date().getHours();
 
+    if (time > 12 && time < 17) {
+        return 'good afternoon';
+    } else {
+        return 'good morning';
+    }
+}
 
-
+console.log(greet());
+// Expected output:
+// If from noon to 5pm, 'good afternoon'
+// Othersiwe, 'good morning'
 
 // -----------------------------------------------------------------
 // Exercise 2
@@ -15,4 +26,10 @@
 //       zero.
 // -----------------------------------------------------------------
 
+function countDown(number) {
+    const length = number + 1;
+    return [...Array(length).keys()].reverse();
+}
 
+console.log(countDown(5));
+// Expected output: [5, 4, 3, 2, 1, 0]
