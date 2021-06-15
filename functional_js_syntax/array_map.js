@@ -2,7 +2,9 @@
 const start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 // your code
+const reverse = start.reverse();
 
+console.log('Array',reverse);
 // expected output: Array [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 // ----------------------------------------------------------
@@ -10,7 +12,11 @@ const start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const shipMates = [["Mal", "Captain"], ["Wash", "Pilot"], ["Zoey", "1st Mate"], ["Jayne", "Public Relations"]]
 
 // your code
+const jobs = shipMates.map(mate => {
+    return `${mate[1]}: ${mate[0]}`;
+});
 
+console.log('Array', jobs);
 // expected output: Array ["Captain: Mal", etc...]
 
 // ----------------------------------------------------------
@@ -18,7 +24,19 @@ const shipMates = [["Mal", "Captain"], ["Wash", "Pilot"], ["Zoey", "1st Mate"], 
 const awayTeam = ["Picard", "Riker", "Troy", "Data"]
 
 // your code
+const evenOrOdd = function (x) {
+    if(x % 2 === 0) {
+        return 'even';
+    } else {
+        return 'odd';
+    }
+};
 
+const teamPick = awayTeam.map(mate => {
+    return `${mate}: ${evenOrOdd(awayTeam.indexOf(mate))}`;
+});
+
+console.log('Array', teamPick);
 // expected output: Array: ["Picard: even", "Riker: odd", etc...]
 
 // ----------------------------------------------------------
@@ -27,7 +45,9 @@ const awayTeam = ["Picard", "Riker", "Troy", "Data"]
 const sci_fi_shows = ['Manedlorian', 'Enterprise', 'Firefly', 'Battlestar Galactica']
 
 // your code
+const showDiminsions = sci_fi_shows.map(show => [show, sci_fi_shows.indexOf(show)]);
 
+console.log('Array', showDiminsions);
 // expected output: Array [['Manedlorian', 0], ['Enterprise', 1], ['Firefly', 2], ['Battlestar Galactica', 3]]
 
 // ----------------------------------------------------------
@@ -36,7 +56,9 @@ const sci_fi_shows = ['Manedlorian', 'Enterprise', 'Firefly', 'Battlestar Galact
 const numbers = [1, 2, 3, 4]
 
 // your code
+const allNums = numbers.map(nums => numbers);
 
+console.log('Array', allNums);
 // expected output: Array [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]
 
 // Having trouble with creating a 2D array? 
