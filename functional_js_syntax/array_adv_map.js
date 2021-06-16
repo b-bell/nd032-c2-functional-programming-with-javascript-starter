@@ -16,6 +16,11 @@ var index = [
     {key: 3, sector: 8346, t_score: 10, id: 'n9837ks857', value: 'Jawa'},
 ]
 
+const result = index.map(race => {
+    return { id: race.id.substring(0, 3), value: race.value };
+});
+
+console.log(result);
 // Expected Output:
 // [
 //     {id: '123', value: 'Klingon'},
