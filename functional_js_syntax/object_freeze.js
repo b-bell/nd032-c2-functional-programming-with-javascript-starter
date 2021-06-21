@@ -12,10 +12,10 @@ const currentShow = {
     title: 'Dr. Who',
     seasons: 11,
     currentSeason: 4
-}
+};
 
 // as a const, we can do this:
-currentShow.currentSeason = 5
+currentShow.currentSeason = 5;
 
 // but if we freeze the object
 Object.freeze(currentShow);
@@ -28,3 +28,12 @@ currentShow.currentSeason = 5;
 
 // ----------------------------------------------------------
 // Directions: Create your own object and freeze it!
+const state = {
+    name: 'Texas',
+    founded: 1892,
+    flower: 'Blue Bonnet'
+};
+
+Object.freeze(state);
+
+state.founded = 1899;
