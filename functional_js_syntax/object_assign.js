@@ -42,3 +42,10 @@ state = Object.assign(state, incomingState);
 // } 
 
 // Your Code here
+const incomingState2 = {
+    name: 'Bueno'
+};
+
+state = Object.assign(state, incomingState2);
+
+console.log(state);

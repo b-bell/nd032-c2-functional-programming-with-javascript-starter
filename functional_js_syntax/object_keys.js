@@ -1,4 +1,5 @@
-// Use Object.keys with the map method to print "This character has a(n) [property-name]" for each property
+// Use Object.keys with the map method to print "This character has a(n) [property-name]"
+// for each property
 
 const character = {
     id: '12mn18udcbv9823',
@@ -9,6 +10,14 @@ const character = {
 };
 
 console.log(Object.keys(character));
+
+const description = Object.keys(character).map(x => {
+    const phrase = `This character has a(n) ${x}.`
+    console.log(phrase);
+    return phrase;
+});
+
+console.log(description);
 // Expected Output: 
 // This character has a(n) id.
 // This character has a(n) name.

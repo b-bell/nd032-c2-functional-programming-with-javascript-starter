@@ -101,7 +101,15 @@ const characters = [
 // Create an array containing only the names of Captains from all universes.
 
 // Your Code here
+const captains = characters.filter(x => {
+  return x.role === 'Captain';
+});
 
+const captainNames = captains.map(x => {
+  return x.name;
+});
+
+console.log(captainNames);
 // expected output: ['Mal Reynolds', 'Kathryn Janeway']
 
 // ----------------------------------------------------------
