@@ -3,7 +3,7 @@ const Immutable = require('immutable');
 
 // PART 1. Getting and Setting values
 // Given the following object, make an update that turns name to 'Mal' and role to 'Captain'
-const map1 = Immutable.Map({ 
+const state1 = Immutable.Map({ 
   name: 'Wash',
   ship: {
       name: 'Serenity',
@@ -18,22 +18,14 @@ const map1 = Immutable.Map({
   }
 });
 
-const map2 = Immutable.Map({
-  name: 'Mal',
-  role: 'Captain',
-  favoriteThing: {
-      item: "Not complicated"
-      },
-  history: ["Browncoat sergeant"]
-});
 
 // YOUR TURN --------------------------------------------------------------
-// create `map3` immutable object by merging `map1` and `map2`
+// You can do this:
+const state2 = state1.set('name', 'Mal');
+const state3 = state2.set('role', 'Captain');
 
-console.log(map1.toJS())
-console.log(map2.toJS())
-console.log(map3.toJS())
-
+// But Immutable also allows you to do this:
+// const state2 = state1.set('name', 'Mal').set('role', 'Captain');
 
 // -----------------------------------------------------------------
 // -----------------------------------------------------------------
@@ -44,15 +36,17 @@ const obj = { d: 100, o: 200, g: 300 };
 
 // But thankfully, normal javascript objects are still valid in Immutable
 // Notice that here we can merge a normal object into an Immutable Map
-const map4 = map1.merge(map2, obj);
+const map3 = state1.merge(state2, obj);
 
 // But also notice how different the two are when we console log map3 
-console.log(map4.toJS())
+console.log(map3);
 
 // YOUR TURN --------------------------------------------------------------
 // Can you locate the contents of our variable 'obj' inside the Immutable Map map3?
+console.log(map3);
 
-//Your code
+// If you open the Immutable map3 in inspect element, you can see that it isn't an ordinary object
+// you'll find all the properties under "entries"
 
 // -----------------------------------------------------------------
 // -----------------------------------------------------------------
@@ -63,9 +57,9 @@ console.log(map4.toJS())
 const numbers = Immutable.List([1, 2, 3]);
 
 // We can turn normal JS arrays into Immutable Lists like this:
-const plainArray = [ 1, 2, 3, 4 ]
-const listFromPlainArray = Immutable.List(plainArray)
-console.log(listFromPlainArray.toJS())
+const plainArray = [ 1, 2, 3, 4 ];
+const listFromPlainArray = Immutable.List(plainArray);
+console.log(listFromPlainArray);
 
 // we can declare a new Immutable List
 const myList = Immutable.List([ 'stuffed t-rex' ]);
@@ -76,15 +70,14 @@ const myList1 = myList.set(1, 'toy lightsaber');
 console.log(Array.from(myList1)); // [ "stuffed t-rex", "toy lightsaber" ]
 
 // but, in order to not need to supply the index, we can also add new values with push
-const myList2 = myList1.push('Picard bobblehead')
+const myList2 = myList1.push('Picard bobblehead');
 console.log(Array.from(myList2));
 
 // YOUR TURN --------------------------------------------------------------------------
 
 // 1. Turn the following array into an Immutable array
-// 2. Add a character
 
-// Your code
+// 2. Add a character
 
 // -----------------------------------------------------------------
 // -----------------------------------------------------------------
@@ -131,3 +124,17 @@ const characters = [
     power_level: 140
   }
 ]
+
+// SOLUTION
+const immutableCharacters = Immutable.List(characters).push({
+  name: 'Yoda',
+  role: 'Jedi Master',
+  universe: 'Star Wars',
+  weapon: 'The Force',
+  powerLevel: 9001
+});
+console.log(Array.from(immutableCharacters));
+
+// STRETCH SOLUTION
+const withoutJabba = immutableCharacters.delete(1);
+console.log(Array.from(withoutJabba));
