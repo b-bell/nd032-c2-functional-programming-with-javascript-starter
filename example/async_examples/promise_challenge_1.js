@@ -66,15 +66,14 @@ new Promise((resolve, reject) => {
     if (unread.length > 0) return unread;
     throw new Error('There are no unread alerts');
 })
-.then((unreadAlerts) => {
-    return unreadAlerts.filter(alert => {
+.then((unreadAlerts) => unreadAlerts.filter(alert => {
         if (alert.type === 'system') {
             printSystemAlert(alert);
         } else {
             return true;
         };
-    });
-})
+    })
+)
 .then((nonSystemAlerts) => nonSystemAlerts.map(alert => {
     if (alert.severity === 'critical') {
         printCriticalAlert(alert);
